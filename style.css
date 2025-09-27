@@ -1,0 +1,319 @@
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(-45deg, #f9f9f9, #e0f7fa, #f9f9f9, #b2ebf2);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+  color: #333;
+  line-height: 1.6;
+  overflow-x: hidden; /* Evita scrolls horizontales en animaciones */
+}
+
+/* Header */
+header {
+  background: linear-gradient(135deg, #00adb5, #393e46);
+  color: #fff;
+  padding: 3rem 2rem;
+  text-align: center;
+  animation: fadeInDown 1.5s ease-out;
+  position: relative;
+}
+header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: inherit;
+  animation: shimmer 3s ease-in-out infinite;
+  opacity: 0.1;
+}
+header h1 {
+  margin-bottom: 0.5rem;
+  font-size: 2.5rem;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid #ffd369;
+  width: 0;
+  animation: typing 3s steps(20, end) forwards, blink 0.75s step-end infinite;
+}
+header p {
+  font-weight: 300;
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
+  opacity: 0;
+  animation: fadeInUp 1s ease-out 0.5s forwards;
+}
+nav {
+  margin-top: 1rem;
+  opacity: 0;
+  animation: fadeInUp 1s ease-out 1s forwards;
+}
+nav a {
+  margin: 0 1rem;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: transform 0.3s, color 0.3s;
+  display: inline-block;
+  animation: pulse 2s ease-in-out infinite alternate;
+}
+nav a:hover {
+  color: #ffd369;
+  transform: scale(1.1) rotate(5deg);
+}
+
+/* Secciones */
+section {
+  padding: 4rem 2rem;
+  max-width: 1000px;
+  margin: auto;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 1.2s ease-out forwards;
+}
+#sobre-mi {
+  animation-delay: 1.5s;
+}
+#proyectos {
+  animation-delay: 2.5s;
+}
+#contacto {
+  animation-delay: 4s;
+  background: #eeeeee;
+  border-radius: 15px;
+  padding: 2rem;
+  text-align: center;
+  transform: scale(0.9) translateY(30px);
+  animation: zoomInUp 1.2s ease-out forwards;
+}
+h2 {
+  margin-bottom: 1.5rem;
+  color: #222;
+  text-align: center;
+  font-size: 2rem;
+  position: relative;
+  opacity: 0;
+  animation: fadeIn 1s ease-out 0.2s forwards;
+}
+h2::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #00adb5, #ffd369);
+  margin: 0.5rem auto 0;
+  border-radius: 2px;
+  animation: underlineExpand 1s ease-out 0.5s forwards;
+}
+
+/* Centrado para Sobre mí */
+#sobre-mi p {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 1rem auto;
+  padding: 0 1rem;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease-out 0.5s forwards;
+}
+
+/* Proyectos */
+.project {
+  background: #fff;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.4s ease, box-shadow 0.4s ease, rotate 0.3s ease;
+  opacity: 0;
+  transform: translateX(-50px);
+  animation: slideInLeft 1s ease-out forwards;
+}
+.project:nth-child(1) { animation-delay: 3s; }
+.project:nth-child(2) { 
+  animation: slideInRight 1s ease-out forwards;
+  animation-delay: 3.5s;
+  transform: translateX(50px);
+}
+.project:nth-child(3) { 
+  animation: slideInLeft 1s ease-out forwards;
+  animation-delay: 4s;
+  transform: translateX(-50px);
+}
+.project:hover {
+  transform: translateY(-10px) rotate(1deg);
+  box-shadow: 0 8px 25px rgba(0, 173, 181, 0.3);
+}
+.project h3 {
+  margin-bottom: 0.5rem;
+  transition: color 0.3s ease;
+}
+.project:hover h3 {
+  color: #00adb5;
+}
+.project p {
+  opacity: 0;
+  animation: fadeIn 0.8s ease-out 0.3s forwards;
+}
+.project a {
+  display: inline-block;
+  margin-top: 0.5rem;
+  color: #00adb5;
+  text-decoration: none;
+  font-weight: bold;
+  position: relative;
+  transition: color 0.3s ease;
+}
+.project a::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #00adb5, #ffd369);
+  transition: width 0.4s ease;
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+}
+.project a:hover::after {
+  width: 100%;
+}
+.project a:hover {
+  color: #393e46;
+  transform: translateX(5px);
+}
+
+/* Contacto específicos */
+#contacto p {
+  font-size: 1.1rem;
+  margin: 1rem 0;
+  opacity: 0;
+  animation: bounceIn 1s ease-out forwards;
+}
+#contacto p:nth-child(1) { animation-delay: 0.5s; }
+#contacto p:nth-child(2) { animation-delay: 1s; }
+#contacto a {
+  color: #00adb5;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+#contacto a:hover {
+  text-decoration: underline;
+  color: #393e46;
+  transform: scale(1.05);
+}
+#contacto p::before {
+  display: inline-block;
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Footer */
+footer {
+  background: #393e46;
+  color: #fff;
+  text-align: center;
+  padding: 1.5rem;
+  margin-top: 3rem;
+  opacity: 0;
+  animation: fadeIn 1s ease-out 5s forwards;
+}
+
+/* Animaciones */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+@keyframes fadeInDown {
+  from { 
+    opacity: 0; 
+    transform: translateY(-30px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+@keyframes fadeInUp {
+  from { 
+    opacity: 0; 
+    transform: translateY(30px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+@keyframes pulse {
+  from { transform: scale(1); }
+  to { transform: scale(1.05); }
+}
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-50px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(50px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes zoomInUp {
+  from { 
+    opacity: 0; 
+    transform: scale(0.9) translateY(30px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: scale(1) translateY(0); 
+  }
+}
+@keyframes underlineExpand {
+  from { width: 0; }
+  to { width: 60px; }
+}
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+@keyframes bounceIn {
+  0% { 
+    opacity: 0; 
+    transform: scale(0.3) translateY(30px); 
+  }
+  50% { 
+    opacity: 1; 
+    transform: scale(1.05); 
+  }
+  70% { 
+    transform: scale(0.9); 
+  }
+  100% { 
+    opacity: 1; 
+    transform: scale(1) translateY(0); 
+  }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+}
